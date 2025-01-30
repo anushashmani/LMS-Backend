@@ -50,6 +50,8 @@ app.use(
   cors({
     origin: "*",
     optionsSuccessStatus: 200,
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    credentials: true, // Allows cookies to be sent
   })
 );
 // Middleware to log requests
