@@ -32,28 +32,29 @@ app.use(cookieParser()); // Parse cookies
 // Connect to the database
 connectDB();
 // CORS configuration to allow your frontend
-// app.use(
-//   cors({
-//     origin: [
-//       // "http://localhost:5173", // Allow localhost for development
-//       // // "https://manegement-system.vercel.app",  // Allow Vercel URL for production
-//       // "https://lms-frontend-rosy-zeta.vercel.app/", // Allow Vercel URL for production
-//       "*",
-//     ], // Allow these specific frontend addresses
-//     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-//     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-//     credentials: true, // Allows cookies to be sent
-//   })
-// );
-
 app.use(
   cors({
     origin: "*",
-    optionsSuccessStatus: 200,
+    // origin: [
+    //   // "http://localhost:5173", // Allow localhost for development
+    //   // // "https://manegement-system.vercel.app",  // Allow Vercel URL for production
+    //   // "https://lms-frontend-rosy-zeta.vercel.app/", // Allow Vercel URL for production
+    //   "*",
+    // ], // Allow these specific frontend addresses
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     credentials: true, // Allows cookies to be sent
   })
 );
+
+// app.use(
+//   cors({
+//     origin: "*",
+//     optionsSuccessStatus: 200,
+//     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+//     credentials: true, // Allows cookies to be sent
+//   })
+// );
 // Middleware to log requests
 const middleware = (req, res, next) => {
   console.log(`Request Method: ${req.method}, Request URL: ${req.url}`);
